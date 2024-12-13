@@ -1,0 +1,102 @@
+import { test, expect } from '@playwright/test';
+
+test.use({
+    viewport: {
+        height: 1080,
+        width: 1920
+    }
+});
+
+test('test', async ({ page }) => {
+    test.setTimeout(180000);
+    await page.goto('https://learn-doc.test.josce.mil/moodle/login/index.php?saml=off');
+    await page.getByPlaceholder('Username').click();
+    await page.getByPlaceholder('Username').fill('Admin');
+    await page.getByPlaceholder('Password').click();
+    await page.getByPlaceholder('Password').fill('23wesdxc@#WESDXC');
+    await page.getByRole('button', { name: 'Log in' }).click();
+    await page.getByRole('menuitem', { name: 'Site administration' }).click();
+    await page.getByRole('tab', { name: 'Learning' }).click();
+    await page.getByRole('link', { name: 'Manage courses and categories' }).click();
+    await page.getByLabel('Automation - subcategory').click();
+    await page.getByRole('link', { name: 'Create new course' }).click();
+    await page.getByLabel('Course full name', { exact: true }).click();
+    await page.getByLabel('Course full name', { exact: true }).fill('As Soon As Possible');
+    await page.getByLabel('Course short name', { exact: true }).click();
+    await page.getByLabel('Course short name', { exact: true }).fill('ASAP');
+    await page.getByLabel('Enable', { exact: true }).uncheck();
+    await page.getByRole('button', { name: 'Save and return' }).click();
+    await page.getByRole('button', { name: 'Edit' }).click();
+    await page.getByRole('menuitem', { name: 'Course', exact: true }).click();
+    await page.getByRole('button', { name: 'Proceed to course content' }).click();
+    // await page.waitForTimeout(10000)
+    await page.getByRole('link', { name: 'Announcements Forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #1');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #1. Is there a minimum requirement for the amount of text needed ???');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #2');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #2');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #3');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #3');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #4');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #4');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #5');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #5');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #6');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #6');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #7');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #7');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #8');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #8');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #9');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #9');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('link', { name: 'Add discussion topic' }).click();
+    await page.getByLabel('Subject').click();
+    await page.getByLabel('Subject').fill('Topic #10');
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByRole('paragraph').click();
+    await page.locator('iframe[title="Rich text area"]').contentFrame().getByLabel('Rich text area. Press ALT-0').fill('Topic #10');
+    await page.getByRole('button', { name: 'Post to forum' }).click();
+    await page.getByRole('menuitem', { name: 'Site administration' }).click();
+    await page.getByRole('tab', { name: 'Plugins' }).click();
+    await page.getByRole('link', { name: 'Forum' }).click();
+    await page.getByLabel('Discussions per page').click();
+    await page.getByLabel('Discussions per page').fill('5');
+    await page.getByRole('button', { name: 'Save changes' }).click();
+    await page.getByLabel('User menu').click();
+    await page.getByRole('menuitem', { name: 'Log out' }).click();
+});
